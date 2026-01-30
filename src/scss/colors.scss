@@ -1,0 +1,80 @@
+$colors: (
+  "yellow": (
+    "1": #ffffe5,
+    "2": #fafa7e,
+    "3": #eded1f,
+    "4": #8d8d12,
+    "5": #2b2b08,
+  ),
+
+  "orange": (
+    "1":  #fff6e5,
+    "2": #face7e,
+    "3": #eda41f,
+    "4": #8d6212,
+    "5": #2b1f08
+  ),
+  "red": (
+    "1":  #ffe5e5,
+    "2": #fa7e7e,
+    "3": #ed1f1f,
+    "4": #8d1212,
+    "5": #2b0808
+  ),
+  "violet":(
+    "1":  #101011,
+    "2": #ca7efa,
+    "3": #9e1fed,
+    "4": #5e128d,
+    "5": #1e082b
+  ),
+  "blue": (
+    "1":  #e5e5ff,
+    "2": #7e7efa,
+    "3": #1f1fed,
+    "4": #12128d,
+    "5": #08082b
+  ),
+  "green": (
+    "1":  #e5ffe5,
+    "2": #7efa7e,
+    "3": #1fed1f,
+    "4": #128d12,
+    "5": #082b08
+  )
+);
+
+@each $name, $selected-colors in $colors{
+
+    .#{$name}{
+      @each $number, $color in $selected-colors{
+        .fill-#{$number} {
+            fill: $color; 
+        }
+        .stroke-#{$number} {
+            stroke: $color; 
+        }
+        .color-#{$number} {
+            color: $color; 
+        }
+        .bg-#{$number} {
+            background-color: $color; 
+        }
+      }
+    }
+
+    @each $number, $color in $selected-colors{
+      .fill-#{$name}-#{$number} {
+          fill: $color
+      }
+      .stroke-#{$name}-#{$number} {
+          stroke: $color;
+      }
+      .color-#{$name}-#{$number} {
+          color: $color;
+      }
+      .bg-#{$name}-#{$number} {
+          background-color: $color;
+      }
+    }
+}
