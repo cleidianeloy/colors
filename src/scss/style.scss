@@ -1,1 +1,57 @@
-@import "colors"; 
+@import "colors";
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.colors-container {
+    display: grid;
+    grid-template-areas: "ballon";
+
+    .balloon {
+        width: 16rem;
+        height: 6rem;
+        border-radius: 10rem;
+        box-shadow: 1px 4px 12px rgba(0, 0, 0, .5);
+        margin-bottom: 2rem;
+        grid-area: balloon;
+        position: relative;
+        bottom: calc(2.3rem * var(--bottom));
+        z-index: calc(5 - var(--bottom));
+    }
+}
+
+.select-container {
+    justify-self: flex-end;
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+
+    button {
+        font-size: 0;
+        color: transparent;
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: 5px 3px 0px rgba(0, 0, 0, 0.3);
+        margin-inline: 1rem;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
