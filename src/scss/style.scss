@@ -17,7 +17,7 @@ main {
     transition: --color-1 0.5s ease-in-out,
         --color-2 0.5s ease-in-out,
         --color-3 0.5s ease-in-out,
-        --color-4 0.5s ease-in-out, 
+        --color-4 0.5s ease-in-out,
         --color-5 0.5s ease-in-out;
 
 }
@@ -54,6 +54,10 @@ main {
     bottom: 2rem;
     display: flex;
     flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
     button {
         font-size: 0;
@@ -63,7 +67,6 @@ main {
         border-radius: 1rem;
         border: none;
         box-shadow: 5px 3px 0px rgba(0, 0, 0, 0.3);
-        margin-inline: 1rem;
         cursor: pointer;
 
         &:hover,
