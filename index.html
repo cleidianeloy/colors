@@ -8,8 +8,6 @@
   <script src="./dist/libs/jquery/jquery-4.0.0.min.js"></script>
   <title>Colors</title>
   <link rel="stylesheet" href="./dist/css/style.css">
-  <script>
-  </script>
 </head>
 <!-- Implementing dynamic styling via SCSS variables and mixins-->
 <!-- 
@@ -50,21 +48,6 @@
     </div>
   </main>
 </body>
-<script>
-  $('.select-container button').on('click', function () {
-    const color = $(this).attr("data-color");
-    const colorsContainer = $('.colors-container');
-    $(this).siblings(".select").removeClass("select");
-    $(this).addClass("select");
-    colorsContainer.addClass("transition");
-    setTimeout(function () {
-
-      $('main').attr('class', color);
-      colorsContainer.removeClass('transition');
-    }, 500);
-
-
-  })
-</script>
+<script src="./src/js/index.js"></script>
 
 </html>
