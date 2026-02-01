@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Colors</title>
-    <link rel="stylesheet" href="./dist/css/style.css">
-  </head>
-  <!-- Implementing dynamic styling via SCSS variables and mixins-->
-  <!-- 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./dist/libs/jquery/jquery-4.0.0.min.js"></script>
+  <title>Colors</title>
+  <link rel="stylesheet" href="./dist/css/style.css">
+  <script>
+  </script>
+</head>
+<!-- Implementing dynamic styling via SCSS variables and mixins-->
+<!-- 
         .fill-yellow-1 {
             /* SVG interior */
             fill: $color
@@ -27,24 +30,41 @@
             background-color: $color;
         }
   -->
-  <body>
-    <main class="yellow">
-      <div class="colors-container">
-        <div class="balloon bg-1" style="--bottom: 0"> </div>
-        <div class="balloon bg-2" style="--bottom: 1"> </div>
-        <div class="balloon bg-3" style="--bottom: 2"> </div>
-        <div class="balloon bg-4" style="--bottom: 3"> </div>
-        <div class="balloon bg-5" style="--bottom: 4"> </div>
-      </div>
-      <div class="select-container">
-        <button class="bg-yellow-3" >Yellow</button>
-        <button class="bg-orange-3">Orange</button>
-        <button class="bg-red-3">Red</button>
-        <button class="bg-violet-3">Violet</button>
-        <button class="bg-blue-3">Blue</button>
-        <button class="bg-green-3">Green</button>
-      </div>
-    </main>
-  </body>
+
+<body>
+  <main class="yellow">
+    <div class="colors-container">
+      <div class="balloon bg-1" style="--bottom: 0"> </div>
+      <div class="balloon bg-2" style="--bottom: 1"> </div>
+      <div class="balloon bg-3" style="--bottom: 2"> </div>
+      <div class="balloon bg-4" style="--bottom: 3"> </div>
+      <div class="balloon bg-5" style="--bottom: 4"> </div>
+    </div>
+    <div class="select-container">
+      <button class="bg-yellow-3 select" data-color="yellow">Yellow</button>
+      <button class="bg-orange-3" data-color="orange">Orange</button>
+      <button class="bg-red-3" data-color="red">Red</button>
+      <button class="bg-violet-3" data-color="violet">Violet</button>
+      <button class="bg-blue-3" data-color="blue">Blue</button>
+      <button class="bg-green-3" data-color="green">Green</button>
+    </div>
+  </main>
+</body>
+<script>
+  $('.select-container button').on('click', function () {
+    const color = $(this).attr("data-color");
+    const colorsContainer = $('.colors-container');
+    $(this).siblings(".select").removeClass("select");
+    $(this).addClass("select");
+    colorsContainer.addClass("transition");
+    setTimeout(function () {
+
+      $('main').attr('class', color);
+      colorsContainer.removeClass('transition');
+    }, 500);
+
+
+  })
+</script>
 
 </html>
